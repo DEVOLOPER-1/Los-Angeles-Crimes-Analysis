@@ -45,45 +45,27 @@ with diff_date_bet_report_occurence_in_days:
         differences = []
 
         for reported, occured in zip(date_reported, date_occured):
-            # if reported != 'nan' and occured != 'nan':
+            if reported != 'nan' and occured != 'nan':
 
-            #     # Example date-time string
-            #     date_time_str = "03/01/2020 12:00:00 AM"
 
-            #     # Parse the date-time string to a datetime object
-            #     date_time_obj_r = datetime.strptime(reported, "%m/%d/%Y %I:%M:%S %p")
+                # Parse the date-time string to a datetime object
+                date_time_obj_r = datetime.strptime(reported, "%m/%d/%Y %I:%M:%S %p")
                 
-            #     date_time_obj_o = datetime.strptime(occured,"%m/%d/%Y %I:%M:%S %p")
+                date_time_obj_o = datetime.strptime(occured,"%m/%d/%Y %I:%M:%S %p")
+
+                year_diff = abs(date_time_obj_r.year - date_time_obj_o.year)
                 
-            #     # Print the datetime object
-            #     print(date_time_obj_r)
-                
-            #     print(date_time_obj_o)
-
-            #     # Example operations:
-            #     # Get the year
-            #     print("Year:", date_time_obj_r.year)
-
-            #     # Get the month
-            #     print("Month:", date_time_obj_r.month)
-
-            #     # Get the day
-            #     print("Day:", date_time_obj_r.day)
+                month_diff = abs(date_time_obj_r.month - date_time_obj_o.month)
                 
                 
+                day_diff = abs(date_time_obj_r.day - date_time_obj_o.day)
                 
-            #     print("Year:", date_time_obj_o.year)
+                total_diff_in_days = day_diff + (month_diff * 30) + (year_diff * 365)
 
-            #     # Get the month
-            #     print("Month:", date_time_obj_o.month)
-
-            #     # Get the day
-            #     print("Day:", date_time_obj_o.day)
-
-   
+                differences.append(total_diff_in_days)
 
 
-            for value in division_of_records_list:
+                for value in division_of_records_list:
                     if isinstance(value, float):
                         print(f"Unexpected float value: {value}")
                 #print(type(value))
