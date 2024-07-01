@@ -51,24 +51,22 @@ with diff_date_bet_report_occurence_in_days:
             st.write(
                 """
                         
-                        ## Why the Gap Between Crime and Report?
+                        ## Crimes Don't Always Hit Reports Right Away
 
-Ever notice how news reports sometimes seem delayed after a crime? There's a reason for that! Here's the scoop:
+Police records can lag behind actual crimes. Here's why:
 
-* **People Hold Back:** Victims or witnesses might wait to report due to fear, shock, or simply needing time.
-* **Investigations Take Time:** Complex crimes or those requiring evidence collection can't be rushed. 
-* **Death Investigations are Special:** Determining cause of death and sifting through a missing person case add extra layers of complexity.
+* **People Hesitate:** Fear, shock, or confusion can delay reporting.
+* **Investigations Take Time:** Complex cases need thorough investigation before entering the system.
+* **Death Investigations Are Slower:** Scene checks, autopsies, and missing person verifications add time.
 
-## Why Still Report a Crime?
+But even late reports matter:
 
-Even if time has passed, reporting a crime is vital:
+* **Cold Case Solvers:** Past crimes can crack unsolved cases.
+* **Victim Help:** Reports connect victims with support resources.
+* **Crime Prevention:** Patterns help police understand and prevent future crimes.
 
-* **Justice Doesn't Have a Deadline:** Delayed reports can help solve cold cases or ongoing crimes. 
-* **Helping Victims Heal:** Reporting can connect victims with resources and support. 
-* **Safer Communities:** Crime patterns help law enforcement understand and prevent future crimes.
+So report a crime whenever you're ready - it makes a difference! 
 
-So, if you've been a victim or witness to a crime, know this: reporting it, whenever you're ready, makes a difference. It helps bring criminals to justice, supports victims, and keeps our communities safer. 
-                        
  """
             )
 
