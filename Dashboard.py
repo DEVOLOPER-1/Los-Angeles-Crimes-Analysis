@@ -22,7 +22,7 @@ df = pd.read_csv(
 
 diff_date_bet_report_occurence_in_days_dataset = pd.read_csv(r"report_occurence.csv")
 
-st.header(body="Los Angeles Crimes :gun:", divider="red", anchor=False)
+st.header(body="Los Angeles Crimes :gun:", divider="red", anchor=False )
 
 
 (
@@ -33,9 +33,12 @@ st.header(body="Los Angeles Crimes :gun:", divider="red", anchor=False)
 
 count = 0
 
+average_duration_to_report = round(diff_date_bet_report_occurence_in_days_dataset["differences"].mean())
+
 with diff_date_bet_report_occurence_in_days:
     with st.container():
-        st.write("col1")
+        st.title(body = "Time Gap between :red[Crime] Occurence and :red[Crime] Reporting")
+        st.subheader(f"Every crime might be discovered or reported after an average of :red[{average_duration_to_report} days].")
         st.scatter_chart(
             diff_date_bet_report_occurence_in_days_dataset,
             x="differences",
@@ -45,8 +48,8 @@ with diff_date_bet_report_occurence_in_days:
             color=["#5D0E41"],  # ,"A0153E"]
         )
         with st.expander("See explanation :point_down:"):
-            st.markdown(
-                body="""
+            st.write(
+                """
                         
                         ## Why the Gap Between Crime and Report?
 
