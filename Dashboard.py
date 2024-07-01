@@ -36,8 +36,38 @@ count = 0
 with diff_date_bet_report_occurence_in_days:
     with st.container():
         st.write("col1")
-        st.scatter_chart(diff_date_bet_report_occurence_in_days_dataset, x="differences", y="case_nuber")
-        #fig.show()
+        st.scatter_chart(
+            diff_date_bet_report_occurence_in_days_dataset,
+            x="differences",
+            y="case_nuber",
+            x_label="Date Difference bet. Occurence of crime and Reporting it in days",
+            y_label="Case Number",
+            color=["#5D0E41"],  # ,"A0153E"]
+        )
+        with st.expander("See explanation :point_down:"):
+            st.markdown(
+                body="""
+                        
+                        ## Why the Gap Between Crime and Report?
+
+Ever notice how news reports sometimes seem delayed after a crime? There's a reason for that! Here's the scoop:
+
+* **People Hold Back:** Victims or witnesses might wait to report due to fear, shock, or simply needing time.
+* **Investigations Take Time:** Complex crimes or those requiring evidence collection can't be rushed. 
+* **Death Investigations are Special:** Determining cause of death and sifting through a missing person case add extra layers of complexity.
+
+## Why Still Report a Crime?
+
+Even if time has passed, reporting a crime is vital:
+
+* **Justice Doesn't Have a Deadline:** Delayed reports can help solve cold cases or ongoing crimes. 
+* **Helping Victims Heal:** Reporting can connect victims with resources and support. 
+* **Safer Communities:** Crime patterns help law enforcement understand and prevent future crimes.
+
+So, if you've been a victim or witness to a crime, know this: reporting it, whenever you're ready, makes a difference. It helps bring criminals to justice, supports victims, and keeps our communities safer. 
+                        
+ """
+            )
 
 with crime_code_with_description:
     with st.container():
