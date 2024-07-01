@@ -20,6 +20,7 @@ df = pd.read_csv(
     r"C:\Users\youss\OneDrive\سطح المكتب\Kaggle\cleaned_df.csv", low_memory=False
 )
 
+diff_date_bet_report_occurence_in_days_dataset = pd.read_csv(r"report_occurence.csv")
 
 st.header(body="Los Angeles Crimes :gun:", divider="red", anchor=False)
 
@@ -35,13 +36,9 @@ count = 0
 with diff_date_bet_report_occurence_in_days:
     with st.container():
         st.write("col1")
+        st.scatter_chart(diff_date_bet_report_occurence_in_days_dataset, x="differences", y="case_nuber")
+        #fig.show()
 
-   
-        st.line_chart( data= diff_date_bet_report_occurence_in_days_df , x='x', y='y', x_label='None', y_label='None',use_container_width=True)
-
-print(len(differences) , len(cases_numbers))
-days_average = statistics.mean(differences)
-print(days_average)
 with crime_code_with_description:
     with st.container():
         st.write("col2")
