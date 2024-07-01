@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 from datetime import datetime
-import statistics
+
 
 st.set_page_config(
     page_title="Los Angeles Crimes",
