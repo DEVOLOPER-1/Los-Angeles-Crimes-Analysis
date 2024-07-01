@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 from datetime import datetime
-
+import statistics
 
 st.set_page_config(
     page_title="Los Angeles Crimes",
@@ -72,9 +72,14 @@ with diff_date_bet_report_occurence_in_days:
             case_num = str(case_num)
             case_num = case_num[4:9]
             cases_numbers.append(case_num)
+            
+        diff_date_bet_report_occurence_in_days_df = pd.DataFrame({'x': cases_numbers, 'y': differences})
+   
+        st.line_chart( data= diff_date_bet_report_occurence_in_days_df , x='x', y='y', x_label='None', y_label='None',use_container_width=True)
 
 print(len(differences) , len(cases_numbers))
-
+days_average = statistics.mean(differences)
+print(days_average)
 with crime_code_with_description:
     with st.container():
         st.write("col2")
