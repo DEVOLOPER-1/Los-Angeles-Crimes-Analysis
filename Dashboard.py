@@ -81,29 +81,7 @@ with diff_date_bet_report_occurence_in_days:
             #     print("Day:", date_time_obj_o.day)
 
    
-        #         if reported[0:2] == occured[0:2] and reported[6:10] == occured[6:10]:
-        #             difference = int(reported[3:5]) - int(occured[3:5])
-        #             differences.append(difference)
 
-        #         # This condition is made if the crime was reported after couple of monthes
-
-        #         elif reported[0:2] != occured[0:2] and reported[6:10] == occured[6:10]:
-        #             diff_bet_months = int(reported[0:2]) - int(occured[0:2])
-        #             difference = (
-        #                 int(reported[3:5]) - int(occured[3:5]) + (diff_bet_months * 30)
-        #             )
-        #             differences.append(difference)
-
-        #         elif reported[0:2] != occured[0:2] and reported[6:10] != occured[6:10]:
-        #             diff_bet_months = int(reported[0:2]) - int(occured[0:2])
-        #             diff_bet_years = int(reported[6:10]) - int(occured[6:10])
-        #             difference = (
-        #                 int(reported[3:5])
-        #                 - int(occured[3:5])
-        #                 + (diff_bet_months * 30)
-        #                 + (diff_bet_years * 365)
-        #             )
-        #             differences.append(difference)
 
             for value in division_of_records_list:
                     if isinstance(value, float):
