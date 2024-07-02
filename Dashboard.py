@@ -107,28 +107,35 @@ with vict_sex_age_descent_crime_section:
         with st.expander("See explanation :point_down:"):
             st.write("""
                      
-**Visualizing Diversity:**
+## Visualizing Diversity:
 
 Imagine a four-dimensional world! We use a similar concept to represent our data. The first three dimensions explore **sex**, victim race (referring to their ethnic background), and the type of crime experienced. The final, fascinating dimension takes age into account, with the size of each data point reflecting the victim's age. This allows us to see trends and patterns across different demographics and age groups, creating a rich tapestry of information.
 
-**Sex:**
+## Sex:
 
 * **F:** Female
 * **M:** Male
 * **X:** Unknown
 * **H:** Unavailable (This category can be omitted if not applicable to your data)
 
-**Victim Race Codes:**
+## Victim Race Codes:
 
-* We have specific codes for various Asian, Pacific Islander, and Native American backgrounds (a full list is available upon request). Here are a few examples:
-    * A: Other Asian
-    * B: Black
-    * C: Chinese
-    * H: Hispanic/Latino/Mexican
-    * W: White
-    * Z: Asian Indian
-
-**Understanding Our Background Matters:**
-
-By analyzing these demographics, including both sex and victim race, we gain valuable insights. It helps us ensure fairness in our data and identify areas where we might need to improve representation. This ultimately leads to more comprehensive and unbiased data analysis, allowing us to tell a more complete story.
-""")
+* **A - Other Asian:** Individuals of Asian descent not otherwise specified.
+* **B - Black:** Individuals of African descent. 
+* **C - Chinese:** Individuals of Chinese descent.
+* **D - Cambodian:** Individuals of Cambodian descent.
+* **F - Filipino:** Individuals of Filipino descent.
+* **G - Guamanian:** Individuals of Guamanian descent.
+* **H - Hispanic/Latin/Mexican:** Individuals of Hispanic, Latino, or Mexican origin.  
+* **I - American Indian/Alaskan Native:** Individuals of American Indian or Alaskan Native descent.
+* **J - Japanese:** Individuals of Japanese descent.
+* **K - Korean:** Individuals of Korean descent.
+* **L - Laotian:** Individuals of Laotian descent.
+* **O - Other:** Individuals of a race or ethnicity not otherwise specified.
+* **P - Pacific Islander:** Individuals of Pacific Islander descent not otherwise specified.
+* **S - Samoan:** Individuals of Samoan descent.
+* **U - Hawaiian:** Individuals of Hawaiian descent.
+* **V - Vietnamese:** Individuals of Vietnamese descent.
+* **W - White:** Individuals of European descent.
+* **X - Unknown:** Race or ethnicity is unknown.
+* **Z - Asian Indian:** Individuals of Asian Indian descent. """ )
