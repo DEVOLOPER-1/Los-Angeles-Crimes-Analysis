@@ -15,24 +15,21 @@ st.set_page_config(
 )
 
 
-
-
 vict_sex_age_descent_crime_dataset = pd.read_csv("vict_age_sex_descent_crime.csv")
 
 
-
 with st.container():
-        st.title("Victim Descent Relation to :red[Crime] Activity Against them")
-        st.subheader("Why are Some Descents :red[Targeted] More? ")
-        st.scatter_chart(
-            data=vict_sex_age_descent_crime_dataset,
-            y="victim_race",
-            x="crime_against_the_victim",
-            
-            color= ["#A91D3A"]
-        )
-        with st.expander("See explanation :point_down:"):
-            st.write("""
+    st.title("Victim Descent Relation to :red[Crime] Activity Against them")
+    st.subheader("Why are Some Descents :red[Targeted] More? ")
+    st.scatter_chart(
+        data=vict_sex_age_descent_crime_dataset,
+        y="victim_race",
+        x="crime_against_the_victim",
+        color=["#A91D3A"],
+    )
+    with st.expander("See explanation :point_down:"):
+        st.write(
+            """
                      
 
 ### Why Some Descents Might Show Higher Crime Activity Against them ?
@@ -86,5 +83,5 @@ The reasons behind higher crime activity in certain descents are complex and mul
 * **Z - Asian Indian:** Individuals of Asian Indian descent. 
 
 
-""")
-
+"""
+        )

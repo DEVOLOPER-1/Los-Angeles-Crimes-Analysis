@@ -59,11 +59,9 @@ with st.container():
     st.title("Mapping :red[Crime] Distribution Areas with Associated Codes")
     st.subheader(":red[Crime] Clusters sizes varies by crimes counts")
 
-    st.scatter_chart( data= df , 
-                     x = "area" , 
-                     y = "area_name" , 
-                     size= "areas_counts",
-                     color="#5D0E41")
+    st.scatter_chart(
+        data=df, x="area", y="area_name", size="areas_counts", color="#5D0E41"
+    )
 
     with st.expander("See explanation :point_down:"):
         st.write(
