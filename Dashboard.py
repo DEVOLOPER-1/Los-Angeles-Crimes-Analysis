@@ -83,7 +83,7 @@ with crime_code_with_description:
 
 with vict_sex_age_descent_crime_section:
     with st.container():
-        st.write("col3")
+        st.title("col3")
         fig = px.scatter_3d(
             vict_sex_age_descent_crime_dataset,
             x="sex",
