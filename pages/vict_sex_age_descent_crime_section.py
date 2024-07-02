@@ -73,7 +73,7 @@ print(sex_values_dict)
 with Sex:
     with st.container():
         st.title(":red[Victims] Sex")
-        st.subheader("Why are Some Males :red[Targeted] More? ")
+        st.subheader("What factors contribute to higher :red[victimization] rates among males for crimes? ")
 
         fig2 = px.pie(
             vict_sex_age_descent_crime_dataset,
@@ -108,15 +108,15 @@ vict_sex_age_descent_crime_dataset["victim_race_count"] = (
 with races:
     with st.container():
         st.title(":red[Victims] Race")
-        st.subheader("Why are Some Males :red[Targeted] More? ")
+        st.subheader("Visualizing Victim Demographics")
 
-        fig2 = px.pie(
+        fig3 = px.pie(
             vict_sex_age_descent_crime_dataset,
             names="victim_race",
             values="victim_race_count",
             # color= ["#910A67" , "#720455" , "#3C0753" , "#030637"]
         )
-        st.plotly_chart(fig2, use_container_width=True)
+        st.plotly_chart(fig3, use_container_width=True)
         with st.expander("See explanation :point_down:"):
             st.write(""" 
                      ## Victim Race Codes:
@@ -162,22 +162,14 @@ print(crimes_count_dict)
 
 with crimes:
     with st.container():
-        st.title(":red[Crimes] taken place")
-        st.subheader("Why are Some Males :red[Targeted] More? ")
+        st.title("Acts of :red[crime]")
+        st.subheader("Top :red[Crimes] on the Streets")
 
-        fig2 = px.pie(
+        fig4 = px.pie(
             vict_sex_age_descent_crime_dataset,
             names="crime_against_the_victim",
             values="crimes_count",
             # color= ["#910A67" , "#720455" , "#3C0753" , "#030637"]
         )
-        st.plotly_chart(fig2, use_container_width=True)
-        with st.expander("See explanation :point_down:"):
-            st.write("""
-                     ## Sex:
+        st.plotly_chart(fig4, use_container_width=True)
 
-* **F:** Female
-* **M:** Male
-* **X:** Unknown
-* **H:** Unavailable (This category can be omitted if not applicable to your data)
-                     """)
