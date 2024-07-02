@@ -41,7 +41,7 @@ average_duration_to_report = round(
 with diff_date_bet_report_occurence_in_days:
     with st.container():
         st.title(
-            body="Time Gap between :red[Crime] Occurence and :red[Crime] Reporting"
+            body="Time Gap between :red[Crime] Occurence and :red[Crime] Reporting in days"
         )
         st.subheader(
             f"Every crime might be discovered or reported after an average of :red[{average_duration_to_report} days]."
@@ -50,7 +50,7 @@ with diff_date_bet_report_occurence_in_days:
             diff_date_bet_report_occurence_in_days_dataset,
             x="differences",
             y="case_nuber",
-            x_label="Date Difference bet. Occurence of crime and Reporting it in days",
+            x_label="Date Difference bet. Occurence of crime and Reporting it in days scale",
             y_label="Case Number",
             color=["#5D0E41"],  # ,"A0153E"]
         )
