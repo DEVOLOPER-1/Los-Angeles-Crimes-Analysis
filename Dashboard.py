@@ -22,23 +22,30 @@ df = pd.read_csv(
 
 diff_date_bet_report_occurence_in_days_dataset = pd.read_csv(r"report_occurence.csv")
 
-st.header(body="Los Angeles Crimes :gun:", divider="red", anchor=False )
+st.header(body="Los Angeles Crimes :gun:", divider="red", anchor=False)
 
+vict_sex_age_descent_crime_dataset = pd.read_csv("vict_age_sex_descent_crime.csv")
 
 (
     diff_date_bet_report_occurence_in_days,
     crime_code_with_description,
-    mocodes_analysis,
+    vict_sex_age_descent_crime_section,  # monocodes analysis
 ) = st.columns(3, gap="medium")
 
 count = 0
 
-average_duration_to_report = round(diff_date_bet_report_occurence_in_days_dataset["differences"].mean())
+average_duration_to_report = round(
+    diff_date_bet_report_occurence_in_days_dataset["differences"].mean()
+)
 
 with diff_date_bet_report_occurence_in_days:
     with st.container():
-        st.title(body = "Time Gap between :red[Crime] Occurence and :red[Crime] Reporting")
-        st.subheader(f"Every crime might be discovered or reported after an average of :red[{average_duration_to_report} days].")
+        st.title(
+            body="Time Gap between :red[Crime] Occurence and :red[Crime] Reporting"
+        )
+        st.subheader(
+            f"Every crime might be discovered or reported after an average of :red[{average_duration_to_report} days]."
+        )
         st.scatter_chart(
             diff_date_bet_report_occurence_in_days_dataset,
             x="differences",
@@ -74,6 +81,15 @@ with crime_code_with_description:
     with st.container():
         st.write("col2")
 
-with mocodes_analysis:
+with vict_sex_age_descent_crime_section:
     with st.container():
         st.write("col3")
+        fig = px.scatter_3d(
+            vict_sex_age_descent_crime_dataset,
+            x="sex",
+            y="victims_origin",
+            z="crime_against_the_victim",
+            size="age",
+            color_continuous_scale= "Hot"
+        )
+        st.plotly_chart(fig, theme="streamlit", use_container_width=True)
