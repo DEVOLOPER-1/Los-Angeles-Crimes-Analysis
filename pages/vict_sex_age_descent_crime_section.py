@@ -14,52 +14,112 @@ st.set_page_config(
     },
 )
 
+
 vict_sex_age_descent_crime_dataset = pd.read_csv("vict_age_sex_descent_crime.csv")
 
+Age, Sex = st.columns(2, gap="medium")
 
-with st.container():
-    st.title("4D Exploration: Victim Sex, Race, :red[Crime] Type by Age")
-    st.subheader("Explore below the :red[Crime Data] for Yourself ")
+crimes , races = st.columns(2, gap="medium")
 
-    color_map = {"F": "#00224D", "M": "#5D0E41", "X": "#A0153E", "H": "#151515"}
 
-    # Apply this mapping to your data (assuming `sex` has categories)
-    vict_sex_age_descent_crime_dataset["color"] = vict_sex_age_descent_crime_dataset[
-        "sex"
-    ].map(color_map)
-    fig = px.scatter_3d(
-        vict_sex_age_descent_crime_dataset,
-        x="sex",
-        y="victim_race",
-        z="crime_against_the_victim",
-        size="age",
-        # color_discrete_map= color_map
-    )
 
-    fig.update_layout(
-        scene=dict(
-            xaxis=dict(showticklabels=True),
-            yaxis=dict(showticklabels=True),
-            zaxis=dict(showticklabels=False),
+
+
+
+Age_values_dict = dict(
+    vict_sex_age_descent_crime_dataset["age"].value_counts(dropna=True)
+)
+
+print(Age_values_dict)
+
+
+# Map the values from the dictionary to the DataFrame
+vict_sex_age_descent_crime_dataset["value"] = vict_sex_age_descent_crime_dataset[
+    "age"
+].map(Age_values_dict)
+with Age:
+    with st.container():
+        st.title(":red[Victims] Ages")
+        st.subheader("Why are Some Ages :red[Targeted] More? ")
+
+        fig = px.pie(vict_sex_age_descent_crime_dataset, names="age", values="value")
+        st.plotly_chart(fig, use_container_width=True)
+
+        with st.expander("See explanation :point_down:"):
+            st.write(
+                """
+        ## Age and Crime: Why Some Are More Vulnerable
+
+Ever wonder why certain age groups seem like bigger targets for crime? Age plays a surprising role. While you might think older adults are most at risk, young adults (18-24) actually experience more violent crime. 
+
+This vulnerability stems from factors like risk-taking behavior, lack of experience, and socioeconomic challenges.  However, age isn't the only story. Children are easily overpowered, while older adults might be targeted for financial scams. 
+
+Understanding these patterns is key. It allows us to create targeted solutions. For young adults, this could be safety workshops. For children, it's about personal safety education and creating safe spaces. Protecting older adults might involve fighting financial scams and raising awareness. 
+
+By tackling these vulnerabilities at different stages of life, we can build a safer future for everyone. 
+        """
+            )
+
+
+sex_values_dict = dict(
+    vict_sex_age_descent_crime_dataset["sex"].value_counts(dropna=True)
+)
+
+vict_sex_age_descent_crime_dataset["sex_count"] = vict_sex_age_descent_crime_dataset[
+    "sex"
+].map(sex_values_dict)
+
+print(sex_values_dict)
+with Sex:
+    with st.container():
+        st.title(":red[Victims] Sex")
+        st.subheader("Why are Some Males :red[Targeted] More? ")
+
+        fig2 = px.pie(
+            vict_sex_age_descent_crime_dataset,
+            names="sex",
+            values="sex_count",
+            # color= ["#910A67" , "#720455" , "#3C0753" , "#030637"]
         )
-    )
-    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
-    with st.expander("See explanation :point_down:"):
-        st.write(
-            """
-                     
-## Visualizing Diversity:
+        st.plotly_chart(fig2, use_container_width=True)
+        with st.expander("See explanation :point_down:"):
+            st.write(
+                """
+## Why Men Might Be More Likely Victims of Some Crimes
 
-Imagine a four-dimensional world! We use a similar concept to represent our data. The first three dimensions explore **sex**, victim race (referring to their ethnic background), and the type of crime experienced. The final, fascinating dimension takes age into account, with the size of each data point reflecting the victim's age. This allows us to see trends and patterns across different demographics and age groups, creating a rich tapestry of information.
+The numbers can be surprising: statistics often show more male victims of certain crimes compared to females.  While the reasons are complex, here's a quick look:
 
-## Sex:
+* **Types of Crime Matter:** Men are more likely to be victims of violent crimes like robbery and assault. This might be due to risk-taking behavior, being in high-crime areas, or physical altercations. Property theft can also target men more often. 
+* **Reporting Can Be Unequal:**  Social stigma around male vulnerability might make men less likely to report crimes, especially sexual assault. Fear of retaliation can also be a factor.  
+* **Domestic Violence Differs:** While domestic violence affects both genders, women are more likely to experience violence from intimate partners. 
 
-* **F:** Female
-* **M:** Male
-* **X:** Unknown
-* **H:** Unavailable (This category can be omitted if not applicable to your data)
+"""
+            )
 
-## Victim Race Codes:
+
+race_values_dict = dict(
+    vict_sex_age_descent_crime_dataset["victim_race"].value_counts(dropna=True)
+)
+
+vict_sex_age_descent_crime_dataset["victim_race_count"] = (
+    vict_sex_age_descent_crime_dataset["victim_race"].map(race_values_dict)
+)
+
+with races:
+    with st.container():
+        st.title(":red[Victims] Race")
+        st.subheader("Why are Some Males :red[Targeted] More? ")
+
+        fig2 = px.pie(
+            vict_sex_age_descent_crime_dataset,
+            names="victim_race",
+            values="victim_race_count",
+            # color= ["#910A67" , "#720455" , "#3C0753" , "#030637"]
+        )
+        st.plotly_chart(fig2, use_container_width=True)
+        with st.expander("See explanation :point_down:"):
+            st.write(""" 
+                     ## Victim Race Codes:
 
 * **A - Other Asian:** Individuals of Asian descent not otherwise specified.
 * **B - Black:** Individuals of African descent. 
@@ -79,5 +139,45 @@ Imagine a four-dimensional world! We use a similar concept to represent our data
 * **V - Vietnamese:** Individuals of Vietnamese descent.
 * **W - White:** Individuals of European descent.
 * **X - Unknown:** Race or ethnicity is unknown.
-* **Z - Asian Indian:** Individuals of Asian Indian descent. """
+* **Z - Asian Indian:** Individuals of Asian Indian descent. 
+                     """)
+
+
+
+
+
+
+crimes_count_dict = dict(
+    vict_sex_age_descent_crime_dataset["crime_against_the_victim"].value_counts(dropna=True)
+)
+
+vict_sex_age_descent_crime_dataset["crimes_count"] = (
+    vict_sex_age_descent_crime_dataset["crime_against_the_victim"].map(crimes_count_dict)
+)
+
+
+print(crimes_count_dict)
+
+
+
+with crimes:
+    with st.container():
+        st.title(":red[Crimes] taken place")
+        st.subheader("Why are Some Males :red[Targeted] More? ")
+
+        fig2 = px.pie(
+            vict_sex_age_descent_crime_dataset,
+            names="crime_against_the_victim",
+            values="crimes_count",
+            # color= ["#910A67" , "#720455" , "#3C0753" , "#030637"]
         )
+        st.plotly_chart(fig2, use_container_width=True)
+        with st.expander("See explanation :point_down:"):
+            st.write("""
+                     ## Sex:
+
+* **F:** Female
+* **M:** Male
+* **X:** Unknown
+* **H:** Unavailable (This category can be omitted if not applicable to your data)
+                     """)
