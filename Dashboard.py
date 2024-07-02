@@ -83,7 +83,8 @@ with crime_code_with_description:
 
 with vict_sex_age_descent_crime_section:
     with st.container():
-        st.title("col3")
+        st.title("4D Exploration: Victim Sex, Race, :red[Crime] Type by Age")
+        st.subheader("Explore below the :red[Crime Data] for Yourself ")
         
         color_map = {
         "F": "#00224D",
@@ -97,9 +98,37 @@ with vict_sex_age_descent_crime_section:
         fig = px.scatter_3d(
             vict_sex_age_descent_crime_dataset,
             x="sex",
-            y="victims_origin",
+            y="victim_race",
             z="crime_against_the_victim",
             size="age",
             #color_discrete_map= color_map
         )
         st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+        with st.expander("See explanation :point_down:"):
+            st.write("""
+                     
+**Visualizing Diversity:**
+
+Imagine a four-dimensional world! We use a similar concept to represent our data. The first three dimensions explore **sex**, victim race (referring to their ethnic background), and the type of crime experienced. The final, fascinating dimension takes age into account, with the size of each data point reflecting the victim's age. This allows us to see trends and patterns across different demographics and age groups, creating a rich tapestry of information.
+
+**Sex:**
+
+* **F:** Female
+* **M:** Male
+* **X:** Unknown
+* **H:** Unavailable (This category can be omitted if not applicable to your data)
+
+**Victim Race Codes:**
+
+* We have specific codes for various Asian, Pacific Islander, and Native American backgrounds (a full list is available upon request). Here are a few examples:
+    * A: Other Asian
+    * B: Black
+    * C: Chinese
+    * H: Hispanic/Latino/Mexican
+    * W: White
+    * Z: Asian Indian
+
+**Understanding Our Background Matters:**
+
+By analyzing these demographics, including both sex and victim race, we gain valuable insights. It helps us ensure fairness in our data and identify areas where we might need to improve representation. This ultimately leads to more comprehensive and unbiased data analysis, allowing us to tell a more complete story.
+""")
