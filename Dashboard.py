@@ -83,7 +83,7 @@ with crime_code_with_description:
 
 with vict_sex_age_descent_crime_section:
     with st.container():
-        st.write("col3")
+        st.title("col3")
         
         color_map = {
         "F": "#00224D",
