@@ -19,11 +19,7 @@ vict_sex_age_descent_crime_dataset = pd.read_csv("vict_age_sex_descent_crime.csv
 
 Age, Sex = st.columns(2, gap="medium")
 
-crimes , races = st.columns(2, gap="medium")
-
-
-
-
+crimes, races = st.columns(2, gap="medium")
 
 
 Age_values_dict = dict(
@@ -73,7 +69,9 @@ print(sex_values_dict)
 with Sex:
     with st.container():
         st.title(":red[Victims] Sex")
-        st.subheader("What factors contribute to higher :red[victimization] rates among males for crimes? ")
+        st.subheader(
+            "What factors contribute to higher :red[victimization] rates among males for crimes? "
+        )
 
         fig2 = px.pie(
             vict_sex_age_descent_crime_dataset,
@@ -118,7 +116,8 @@ with races:
         )
         st.plotly_chart(fig3, use_container_width=True)
         with st.expander("See explanation :point_down:"):
-            st.write(""" 
+            st.write(
+                """ 
                      ## Victim Race Codes:
 
 * **A - Other Asian:** Individuals of Asian descent not otherwise specified.
@@ -140,24 +139,22 @@ with races:
 * **W - White:** Individuals of European descent.
 * **X - Unknown:** Race or ethnicity is unknown.
 * **Z - Asian Indian:** Individuals of Asian Indian descent. 
-                     """)
-
-
-
-
+                     """
+            )
 
 
 crimes_count_dict = dict(
-    vict_sex_age_descent_crime_dataset["crime_against_the_victim"].value_counts(dropna=True)
+    vict_sex_age_descent_crime_dataset["crime_against_the_victim"].value_counts(
+        dropna=True
+    )
 )
 
-vict_sex_age_descent_crime_dataset["crimes_count"] = (
-    vict_sex_age_descent_crime_dataset["crime_against_the_victim"].map(crimes_count_dict)
-)
+vict_sex_age_descent_crime_dataset["crimes_count"] = vict_sex_age_descent_crime_dataset[
+    "crime_against_the_victim"
+].map(crimes_count_dict)
 
 
 print(crimes_count_dict)
-
 
 
 with crimes:
@@ -172,4 +169,3 @@ with crimes:
             # color= ["#910A67" , "#720455" , "#3C0753" , "#030637"]
         )
         st.plotly_chart(fig4, use_container_width=True)
-
