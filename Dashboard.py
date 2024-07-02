@@ -28,7 +28,7 @@ vict_sex_age_descent_crime_dataset = pd.read_csv("vict_age_sex_descent_crime.csv
 
 (
     diff_date_bet_report_occurence_in_days,
-    crime_code_with_description,
+    vict_descent_relation_to_crime_activity,   #crime_code_with_description
     vict_sex_age_descent_crime_section,  # monocodes analysis
 ) = st.columns(3, gap="medium")
 
@@ -77,35 +77,43 @@ So report a crime whenever you're ready - it makes a difference!
  """
             )
 
-with crime_code_with_description:
+with vict_descent_relation_to_crime_activity:
     with st.container():
-        st.write("col2")
+        st.title("vict_descent_relation_to_crime_activity")
+
+        st.scatter_chart(data= vict_sex_age_descent_crime_dataset , y="victim_race" ,x="crime_against_the_victim" )
+
+
+
+
+
+
+
+
 
 with vict_sex_age_descent_crime_section:
     with st.container():
         st.title("4D Exploration: Victim Sex, Race, :red[Crime] Type by Age")
         st.subheader("Explore below the :red[Crime Data] for Yourself ")
-        
-        color_map = {
-        "F": "#00224D",
-        "M": "#5D0E41",
-        "X": "#A0153E",
-        "H": "#151515"
-    }
 
-    # Apply this mapping to your data (assuming `sex` has categories)
-        vict_sex_age_descent_crime_dataset['color'] = vict_sex_age_descent_crime_dataset['sex'].map(color_map)
+        color_map = {"F": "#00224D", "M": "#5D0E41", "X": "#A0153E", "H": "#151515"}
+
+        # Apply this mapping to your data (assuming `sex` has categories)
+        vict_sex_age_descent_crime_dataset["color"] = (
+            vict_sex_age_descent_crime_dataset["sex"].map(color_map)
+        )
         fig = px.scatter_3d(
             vict_sex_age_descent_crime_dataset,
             x="sex",
             y="victim_race",
             z="crime_against_the_victim",
             size="age",
-            #color_discrete_map= color_map
+            # color_discrete_map= color_map
         )
         st.plotly_chart(fig, theme="streamlit", use_container_width=True)
         with st.expander("See explanation :point_down:"):
-            st.write("""
+            st.write(
+                """
                      
 ## Visualizing Diversity:
 
@@ -138,4 +146,5 @@ Imagine a four-dimensional world! We use a similar concept to represent our data
 * **V - Vietnamese:** Individuals of Vietnamese descent.
 * **W - White:** Individuals of European descent.
 * **X - Unknown:** Race or ethnicity is unknown.
-* **Z - Asian Indian:** Individuals of Asian Indian descent. """ )
+* **Z - Asian Indian:** Individuals of Asian Indian descent. """
+            )
