@@ -26,7 +26,7 @@ story = """
 
 ### Jane remembers hearing about a new dashboard that provides detailed analysis of crime records in Los Angeles. Curious and a bit anxious, she decides to explore it. Upon visiting the dashboard, she is immediately drawn in by its intuitive interface and the wealth of information available.
 
-### The dashboard reveals the crime trends in her neighborhood over the past year :bar_chart:. She learns about the most common types of crimes, the times they are likely to occur, and even the areas with the highest crime rates. This information is not only eye-opening but also empowers her to make informed decisions about her safety and daily routines :mag_right:.
+### The dashboard reveals the crime trends in her neighborhood over the past several years :bar_chart:. She learns about the most common types of crimes, the times they are likely to occur, and even the areas with the highest crime rates. This information is not only eye-opening but also empowers her to make informed decisions about her safety and daily routines :mag_right:.
 
 ### Jane finds out that the area near her home has seen a recent increase in theft incidents. She takes note of the safety tips provided on the dashboard and decides to share this valuable resource with her friends and family, ensuring they stay informed as well :globe_with_meridians:.
 
