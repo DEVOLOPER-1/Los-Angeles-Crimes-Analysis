@@ -1,8 +1,10 @@
+import folium.map
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 import pydeck as pdk
-
+import folium
+from streamlit_folium import st_folium
 
 st.set_page_config(
     page_title="Los Angeles Crimes",
@@ -23,53 +25,27 @@ crimes_count_dict = dict(df["crime_code_identifier"].value_counts())
 df["crimes_counts"] = df["crime_code_identifier"].map(crimes_count_dict)
 
 
+lat = df["lat"].mean(axis=0)
+lon = df["lon"].mean(axis=0)
+
+lista = [lat, lon]
 
 
-
+# print
 with st.container():
+
     st.title("The precise location of each crime")
     st.map(
-        data= df,
-        latitude = "lat",
-        longitude= "lon",
-        size= "crime_code_identifier",
-        zoom= 10,
-        use_container_width=True
-
+        data=df,
+        latitude="lat",
+        longitude="lon",
+        size="crime_code_identifier",
+        zoom=4,
+        use_container_width=True,
     )
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Py Deck map needs a huge processing power with my data so it's optional to the user to use it
-
 
 
 # with st.container():
@@ -84,7 +60,7 @@ with st.container():
 #                 longitude=df['lon'].mean(),  # Center the map on the mean longitude
 #                 zoom=11,
 #                 pitch=50,
-                
+
 #             ),
 #             layers=[
 #                 pdk.Layer(
@@ -97,7 +73,7 @@ with st.container():
 #                     pickable=True,
 #                     extruded=True,
 #                     auto_highlight=True
-                    
+
 #                 ),
 #                 pdk.Layer(
 #                     'ScatterplotLayer',
@@ -106,12 +82,35 @@ with st.container():
 #                     get_color='[200, 30, 0, 160]',
 #                     get_radius=800,
 #                     get_elevation = 'crimes_counts'
-                    
+
 #                 ),
 #             ],
 #         ),
 #         use_container_width=True
 #     )
-    
+
 #     with st.expander("See explanation :point_down:"):
 #         st.write("")
+
+
+# Same As Above
+
+
+#     st.title("The precise location of each crime")
+
+#     map = folium.Map(
+#         location = lista,
+#         # width = 600,
+#         # height= 350,
+#         zoom_start=6,
+#         tiles= "CartoDB Voyager"
+#                      )
+#     for index , row in df.iterrows():
+#         folium.Marker(location= [row["lat"] , row["lon"]] , tooltip=row["crime_code_identifier"]).add_to(parent=map)
+
+
+#     st_folium(map ,
+#             #   height= 350,
+#             #   width=600,
+#               use_container_width = True
+#               )

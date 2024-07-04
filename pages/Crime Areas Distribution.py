@@ -57,7 +57,11 @@ The good news? Crime hotspots aren't permanent. By tackling the root causes like
 
 with st.container():
     st.title("Mapping :red[Crime] Distribution Areas with Associated Codes")
-    st.subheader(":red[Crime] Clusters sizes varies by crimes counts")
+    st.subheader(
+        """:red[Crime] Clusters sizes varies by crimes counts
+                 The bigger plot size the more crimes in the area
+                 """
+    )
 
     st.scatter_chart(
         data=df, x="area", y="area_name", size="areas_counts", color="#5D0E41"
