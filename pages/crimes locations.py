@@ -25,46 +25,93 @@ df["crimes_counts"] = df["crime_code_identifier"].map(crimes_count_dict)
 
 
 
-with st.container():
-    # st.title("Most :red[Crime] Areas")
-    # st.subheader("Identifying Crime :red[Hotspots]")
 
-    st.pydeck_chart(
-        pdk.Deck(
-            #map_style=None,
-            initial_view_state=pdk.ViewState(
-                latitude=df['lat'].mean(),  # Center the map on the mean latitude
-                longitude=df['lon'].mean(),  # Center the map on the mean longitude
-                zoom=11,
-                pitch=50,
-                
-            ),
-            layers=[
-                pdk.Layer(
-                    'HexagonLayer',
-                    data=df,
-                    get_position='[lon, lat]',
-                    radius=200,
-                    elevation_scale=4,
-                    elevation_range=[0, 1000],
-                    pickable=True,
-                    extruded=True,
-                    auto_highlight=True
-                    
-                ),
-                pdk.Layer(
-                    'ScatterplotLayer',
-                    data=df,
-                    get_position='[lon, lat]',
-                    get_color='[200, 30, 0, 160]',
-                    get_radius=800,
-                    get_elevation = 'crimes_counts'
-                    
-                ),
-            ],
-        ),
+with st.container():
+    st.title("The precise location of each crime")
+    st.map(
+        data= df,
+        latitude = "lat",
+        longitude= "lon",
+        size= "crime_code_identifier",
+        zoom= 10,
         use_container_width=True
+
     )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Py Deck map needs a huge processing power with my data so it's optional to the user to use it
+
+
+
+# with st.container():
+#     # st.title("Most :red[Crime] Areas")
+#     # st.subheader("Identifying Crime :red[Hotspots]")
+
+#     st.pydeck_chart(
+#         pdk.Deck(
+#             #map_style=None,
+#             initial_view_state=pdk.ViewState(
+#                 latitude=df['lat'].mean(),  # Center the map on the mean latitude
+#                 longitude=df['lon'].mean(),  # Center the map on the mean longitude
+#                 zoom=11,
+#                 pitch=50,
+                
+#             ),
+#             layers=[
+#                 pdk.Layer(
+#                     'HexagonLayer',
+#                     data=df,
+#                     get_position='[lon, lat]',
+#                     radius=200,
+#                     elevation_scale=4,
+#                     elevation_range=[0, 1000],
+#                     pickable=True,
+#                     extruded=True,
+#                     auto_highlight=True
+                    
+#                 ),
+#                 pdk.Layer(
+#                     'ScatterplotLayer',
+#                     data=df,
+#                     get_position='[lon, lat]',
+#                     get_color='[200, 30, 0, 160]',
+#                     get_radius=800,
+#                     get_elevation = 'crimes_counts'
+                    
+#                 ),
+#             ],
+#         ),
+#         use_container_width=True
+#     )
     
-    with st.expander("See explanation :point_down:"):
-        st.write("")
+#     with st.expander("See explanation :point_down:"):
+#         st.write("")
