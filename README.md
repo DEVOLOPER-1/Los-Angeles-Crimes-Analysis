@@ -40,7 +40,7 @@ The EDA revealed significant insights into crime patterns in Los Angeles, such a
 ## How to Run 🏃‍♀️
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/crimes-in-la-eda.git
+   git clone https://github.com/DEVOLOPER-1/Los-Angeles-Crimes-Analysis.git
    ```
 2. **Install the required packages**:
    ```bash
