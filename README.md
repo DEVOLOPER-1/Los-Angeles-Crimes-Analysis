@@ -51,6 +51,10 @@ The EDA revealed significant insights into crime patterns in Los Angeles, such a
    streamlit run dashboard.py
    ```
 4. 
+
+https://github.com/DEVOLOPER-1/Los-Angeles-Crimes-Analysis/assets/153318445/8e87321e-9829-4108-87cc-e27deed4bc02
+
+
 ## Conclusion 🎯
 This project showcases a comprehensive approach to EDA, from data scraping to visualization. The use of various tools and libraries ensures thorough data cleaning and insightful analysis, making it a valuable resource for understanding crime dynamics in Los Angeles.
 
