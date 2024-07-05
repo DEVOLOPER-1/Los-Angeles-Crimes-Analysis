@@ -50,7 +50,7 @@ The EDA revealed significant insights into crime patterns in Los Angeles, such a
    ```bash
    streamlit run dashboard.py
    ```
-4. 
+4. **A Quick Overview ON the DashBoard**:
 
 https://github.com/DEVOLOPER-1/Los-Angeles-Crimes-Analysis/assets/153318445/8e87321e-9829-4108-87cc-e27deed4bc02
 
