@@ -58,5 +58,7 @@ This project showcases a comprehensive approach to EDA, from data scraping to vi
 This project is licensed under the MIT License.
 
 ---
+## Stay in Touch 📬
+Thank you for using NeuroImg2PNG! If you have any questions or need any more help, please feel free to reach out.
 
-Feel free to explore the code, contribute, or use the insights derived from this analysis in your own projects. Happy analyzing! 🎉
+https://shorturl.at/nQqEd
