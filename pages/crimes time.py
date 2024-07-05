@@ -24,5 +24,6 @@ count_times_dict = dict(df["hr_min_time"].value_counts())
 df["count_time"] = df["hr_min_time"].map(count_times_dict)
 
 with st.container():
+        st.title("Frequent Times of A :red[crime] over the day !")
         fig = px.pie(df, names="hr_min_time", values="count_time")
         st.plotly_chart(fig, use_container_width=True)
