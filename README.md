@@ -52,7 +52,7 @@ The EDA revealed significant insights into crime patterns in Los Angeles, such a
    ```
 3. **Run the Streamlit dashboard**:
    ```bash
-   streamlit run dashboard.py
+   streamlit run main.py
    ```
 4. **A Quick Overview ON the DashBoard**:
 
