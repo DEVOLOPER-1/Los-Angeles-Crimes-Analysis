@@ -42,9 +42,13 @@ The EDA revealed significant insights into crime patterns in Los Angeles, such a
    ```bash
    git clone https://github.com/DEVOLOPER-1/Los-Angeles-Crimes-Analysis.git
    ```
-2. **Install the required packages**:
+2. **Install the required packages (Easy copy and paste into ur cmd)**:
    ```bash
-   pip install -r requirements.txt
+   pip install kaggle
+   pip install pytest-shutil
+   pip install streamlit
+   pip install pyjanitor
+   pip install sketch
    ```
 3. **Run the Streamlit dashboard**:
    ```bash
