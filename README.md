@@ -44,11 +44,7 @@ The EDA revealed significant insights into crime patterns in Los Angeles, such a
    ```
 2. **Install the required packages (Easy copy and paste into ur cmd)**:
    ```bash
-   pip install kaggle
-   pip install pytest-shutil
-   pip install streamlit
-   pip install pyjanitor
-   pip install sketch
+pip install -r requirements.txt
    ```
 3. **Run the Streamlit dashboard**:
    ```bash
